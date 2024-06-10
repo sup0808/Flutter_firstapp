@@ -19,6 +19,9 @@ void main() {
   print("containsKey-- ${map_name.containsKey('Name')}");
   print("isEmpty-- ${map_name.isEmpty}");
   print("isNotEmpty-- ${map_name.isNotEmpty}");
+  print("containsValue-- ${map_name.containsValue("jjd")}");
+  print("remove-- ${map_name.remove("Name")}");
+
 
 }
 
@@ -30,6 +33,8 @@ values-- (Arvind, Arvind, Arvind, Arvind)
 containsKey-- true
 isEmpty-- false
 isNotEmpty-- true
+* containsValue-- false
+remove-- Arvind
 
-Process finished with exit code 0
+Process finished with exit code 0*/
 
