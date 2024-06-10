@@ -1,20 +1,20 @@
 void main() {
   var map_name = {
-    'key1': "Supriya",
-    'key2' : 2,
-    'key3' : true,
-    'key4' : 3.4
+    'Name': "Supriya",
+    'yearOfExperience' : 2,
+    'Avg.rating' : true,
+    'location' : 3.4
 
   };
+
+  map_name['Name'] = "Arvind";
   print(map_name['key2']);
-  print(map_name['Key2']);
-  print(map_name['key5']);
+  print(map_name);
 
 }
 
 /*
-* output
-2
+* output :: Assi
 null
-null
+{Name: Arvind, yearOfExperience: 2, Avg.rating: true, location: 3.4}
 * */
