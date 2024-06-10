@@ -10,13 +10,12 @@ void main() {
   nameList.add("Gupta");
   nameList.add("Arvin");
   nameList.addAll(list);
+  nameList.insert(3, "23");
 
   print("NameList $nameList");
 }
 
 /*
-*
-*
-* [10, 20, 30, 40, 50]
-NameList [Supriya, Gupta, Arvin, 10, 20, 30, 40, 50]
+[10, 20, 30, 40, 50]
+NameList [Supriya, Gupta, Arvin, 23, 10, 20, 30, 40, 50]
 * */
