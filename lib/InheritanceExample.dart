@@ -4,6 +4,7 @@ void main() {
 }
 
 class User {
+  String name ="Supriya";
   void getData() {
     print("User Deatils");
   }
@@ -12,5 +13,6 @@ class User {
 class Student extends User {
   void getData() {
     print("Student Deatils");
+    print(super.name);
   }
 }
