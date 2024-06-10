@@ -13,6 +13,6 @@ class User {
 class Student extends User {
   void getData() {
     print("Student Deatils");
-    print(super.name);
+    print(super.name); //Super keyword
   }
 }
