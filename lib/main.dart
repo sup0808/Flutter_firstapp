@@ -49,7 +49,18 @@ class _MyHomePageState extends State<MyHomePage> {
           width:200,
           height: 100,
           color: Colors.red,
-          child: Center(child: Text("Welcome to Flutter", style: TextStyle(fontSize: 22),)),
+          child: Center(child:
+          Text("Welcome to Flutter",
+            style: TextStyle(
+                fontSize: 22,
+              color: Colors.lightBlue,
+              fontWeight: FontWeight.bold,
+              fontStyle: FontStyle.italic,
+              backgroundColor: Colors.deepOrange
+
+            ),
+
+          )),
         ),
       ),
 
