@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    var arrNames = ["supriya","Shresth","Arvind","One","Tqo"];
+    var arrNames = ["supriya","Shresth","Arvind","One","Two","Neha","Garima"];
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -43,12 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Flutter Container"),
       ),
       body: ListView.separated(itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(arrNames[index],
-              style: TextStyle(
-                fontSize: 25,
-              )),
+        return ListTile(
+          leading: Text("${index+1}", style:TextStyle(fontSize: 16) ,),
+          title: Text(arrNames[index]),
+          subtitle: Text('Delhi'),
+          trailing: Icon(Icons.add) ,
         );
       },
         itemCount: arrNames.length,
