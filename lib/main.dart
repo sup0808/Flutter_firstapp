@@ -43,10 +43,22 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body: Container(width: 100, height: 100,
-          child: Center(child: Image.asset('assets/images/flutter.png', height: 200, width: 300,)))
+      body:
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(children: [
+            Container(height: 30, width: 200,child:  Text("Supriya Gupta")),
+            Container(height: 30, width: 200, child: Text("Software Developer")),
+            Container(height: 30, width: 200,child: Text("Cognizant Technology solutions")),
 
-     ,
+          ]
+          ),
+
+          Image.asset('assets/images/logo.png', height: 100,width: 200)
+        ],
+      )
+        ,
 
     );
   }
