@@ -40,12 +40,35 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body: InkWell(
-        child: Image.asset('assets/images/logo.png'),
-        onTap: () {
-          print('Inkwell wigets');
-        },
-       // mouseCursor: Colors.amber,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 200,
+              width: 300,
+              color: Colors.greenAccent,
+              margin: EdgeInsets.only(bottom: 11),
+            ),
+            Container(
+              height: 200,
+              width: 300,
+              color: Colors.red,
+              margin: EdgeInsets.only(bottom: 11),
+            ),
+            Container(
+              height: 200,
+              width: 300,
+              color: Colors.yellow,
+              margin: EdgeInsets.only(bottom: 11),
+            ),
+            Container(
+              height: 200,
+              width: 300,
+              color: Colors.blueGrey,
+              margin: EdgeInsets.only(bottom: 11),
+            )
+          ],
+        ),
       ),
     );
   }
