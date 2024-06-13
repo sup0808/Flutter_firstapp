@@ -46,10 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
       body:
       Center(
         child: Container(
-          width:100,
+          width:200,
           height: 100,
           color: Colors.red,
-          child: Text("Welcome to Flutter"),
+          child: Center(child: Text("Welcome to Flutter", style: TextStyle(fontSize: 22),)),
         ),
       ),
 
