@@ -42,7 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:
         ListView(
-          scrollDirection: Axis.horizontal,
+          scrollDirection: Axis.vertical,
+          reverse: true,
           children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
