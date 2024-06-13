@@ -34,44 +34,25 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
+    var arrNames = ["supriya","Shresth","Arvind","One","Tqo"];
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body:
-        ListView(
-          scrollDirection: Axis.vertical,
-          reverse: true,
-          children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Two",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Three",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Four",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Five",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("SSix",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
-          ),
-          Text("Seven",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40))
-
-        ],)
+      body: ListView.builder(itemBuilder: (context, index) {
+        return Text(arrNames[index],
+            style: TextStyle(
+              fontSize: 25,
+            ));
+      },
+        itemCount: arrNames.length,
+        reverse: false,
+        itemExtent: 100,
+        scrollDirection: Axis.horizontal,
+      ),
     );
   }
 }
