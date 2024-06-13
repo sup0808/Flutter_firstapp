@@ -44,7 +44,16 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView.separated(itemBuilder: (context, index) {
         return ListTile(
-          leading: Text("${index+1}", style:TextStyle(fontSize: 16) ,),
+          leading: Container(
+            width: 70,
+            height: 70,
+            child: CircleAvatar(
+              child: Text("Supriya", style: TextStyle(fontSize: 16,color: Colors.black),),
+             backgroundImage: AssetImage('assets/images/avatar.jpeg'),
+              backgroundColor: Colors.green,
+              radius :10
+            ),
+          ),
           title: Text(arrNames[index]),
           subtitle: Text('Delhi'),
           trailing: Icon(Icons.add) ,
