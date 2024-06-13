@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-       debugShowCheckedModeBanner:false ,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -32,34 +32,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body:
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(children: [
-            Container(height: 30, width: 200,child:  Text("Supriya Gupta")),
-            Container(height: 30, width: 200, child: Text("Software Developer")),
-            Container(height: 30, width: 200,child: Text("Cognizant Technology solutions")),
-
-          ]
-          ),
-
-          Image.asset('assets/images/logo.png', height: 100,width: 200)
-        ],
-      )
-        ,
-
+      body: InkWell(
+        child: Image.asset('assets/images/logo.png'),
+        onTap: () {
+          print('Inkwell wigets');
+        },
+       // mouseCursor: Colors.amber,
+      ),
     );
   }
 }
