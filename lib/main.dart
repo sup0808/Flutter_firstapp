@@ -44,15 +44,22 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView.separated(itemBuilder: (context, index) {
         return ListTile(
-          leading: Container(
-            width: 70,
-            height: 70,
-            child: CircleAvatar(
-              child: Text("Supriya", style: TextStyle(fontSize: 16,color: Colors.black),),
-             backgroundImage: AssetImage('assets/images/avatar.jpeg'),
-              backgroundColor: Colors.green,
-              radius :10
+          leading: CircleAvatar(
+            child: Container(
+              height: 60,
+              width: 60,
+              child: Column(
+                children: [
+                  Container(
+                    height: 40,
+                    width: 40,
+                    child: Image.asset('assets/images/user.jpg'),
+                  ),
+                  Text("supr", style: TextStyle(color: Colors.black,))
+                ],
+              ),
             ),
+            maxRadius: 60,
           ),
           title: Text(arrNames[index]),
           subtitle: Text('Delhi'),
