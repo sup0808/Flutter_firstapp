@@ -43,27 +43,34 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Flutter Container"),
       ),
       body: ListView.separated(itemBuilder: (context, index) {
-        return ListTile(
-          leading: CircleAvatar(
-            child: Container(
-              height: 60,
-              width: 60,
-              child: Column(
-                children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    child: Image.asset('assets/images/user.jpg'),
+        return Card(
+          shadowColor: Colors.green ,
+          elevation: 10,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListTile(
+              leading: CircleAvatar(
+                maxRadius: 50,
+                child: Container(
+                  height: 50,
+                  width: 50,
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        child: Image.asset('assets/images/user.jpg'),
+                      ),
+                      //Text("supr", style: TextStyle(color: Colors.black,))
+                    ],
                   ),
-                  Text("supr", style: TextStyle(color: Colors.black,))
-                ],
+                ),
               ),
+              title: Text(arrNames[index]),
+              subtitle: Text('Delhi'),
+              trailing: Icon(Icons.add) ,
             ),
-            maxRadius: 60,
           ),
-          title: Text(arrNames[index]),
-          subtitle: Text('Delhi'),
-          trailing: Icon(Icons.add) ,
         );
       },
         itemCount: arrNames.length,
