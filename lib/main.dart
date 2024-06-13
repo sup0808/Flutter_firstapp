@@ -1,3 +1,5 @@
+import 'package:demp/uiHelper/util.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -94,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               title: Text(arrNames[index],style: Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colors.blue)),
-              subtitle: Text('Delhi',style: Theme.of(context).textTheme.headlineMedium),
+              subtitle: Text('Delhi',style: basicTextStyle(),),
               trailing: Icon(Icons.add) ,
             ),
           ),
