@@ -40,71 +40,37 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
+      body:
+        ListView(
+
           children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                children: [
-                  Container(
-                    height: 200,
-                    width: 300,
-                    color: Colors.red,
-                    margin: EdgeInsets.only(right: 11),
-                  ),
-                  Container(
-                    height: 200,
-                    width: 300,
-                    color: Colors.cyan,
-                    margin: EdgeInsets.only(right: 11),
-                  ),
-                  Container(
-                    height: 200,
-                    width: 300,
-                    color: Colors.brown,
-                    margin: EdgeInsets.only(right: 11),
-                  ),
-                  Container(
-                    height: 200,
-                    width: 300,
-                    color: Colors.redAccent,
-                    margin: EdgeInsets.only(right: 11),
-                  ),
-                  Container(
-                    height: 200,
-                    width: 300,
-                    color: Colors.greenAccent,
-                    margin: EdgeInsets.only(right: 11),
-                  ),
-                ],
-                
-                ),
-              ),
-            ),
-            Container(
-              height: 200,
-              width: 300,
-              color: Colors.red,
-              margin: EdgeInsets.only(right: 11),
-            ),
-            Container(
-              height: 200,
-              width: 300,
-              color: Colors.yellow,
-              margin: EdgeInsets.only(bottom: 11),
-            ),
-            Container(
-              height: 200,
-              width: 300,
-              color: Colors.blueGrey,
-              margin: EdgeInsets.only(bottom: 11),
-            )
-          ],
-        ),
-      ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+          ),
+          Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40))
+
+        ],)
     );
   }
 }
