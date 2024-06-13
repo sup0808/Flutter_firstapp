@@ -44,25 +44,37 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("Flutter Container"),
       ),
       body:
-      Center(
-        child: Container(
-          width:200,
-          height: 100,
-          color: Colors.red,
-          child: Center(child:
-          Text("Welcome to Flutter",
-            style: TextStyle(
-                fontSize: 22,
-              color: Colors.lightBlue,
-              fontWeight: FontWeight.bold,
-              fontStyle: FontStyle.italic,
-              backgroundColor: Colors.deepOrange
 
-            ),
+      TextButton(
+        child: Text("Flat Button"),
+        onPressed: (){
+          print("Button clicked");
+        },
+        onLongPress: (){
+          print("onLongPress clicked");
+        },
+      )
 
-          )),
-        ),
-      ),
+     /* ElevatedButton(
+        child: Text("Flat Button"),
+        onPressed: (){
+          print("Button clicked");
+        },
+        onLongPress: (){
+          print("onLongPress clicked");
+        },
+      )*/
+
+     /* OutlinedButton(
+        child: Text("Flat Button"),
+        onPressed: (){
+          print("Button clicked");
+        },
+        onLongPress: (){
+          print("onLongPress clicked");
+        },
+      )*/
+     ,
 
     );
   }
