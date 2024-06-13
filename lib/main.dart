@@ -42,16 +42,20 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text("Flutter Container"),
       ),
-      body: ListView.builder(itemBuilder: (context, index) {
-        return Text(arrNames[index],
-            style: TextStyle(
-              fontSize: 25,
-            ));
+      body: ListView.separated(itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(arrNames[index],
+              style: TextStyle(
+                fontSize: 25,
+              )),
+        );
       },
         itemCount: arrNames.length,
         reverse: false,
-        itemExtent: 100,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: Axis.vertical, separatorBuilder: (BuildContext context, int index) {
+        return Divider(height: 10,thickness: 3,);
+        },
       ),
     );
   }
