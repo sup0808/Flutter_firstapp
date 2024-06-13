@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:
         ListView(
-
+          scrollDirection: Axis.horizontal,
           children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -50,25 +50,25 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+            child: Text("Two",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+            child: Text("Three",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+            child: Text("Four",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+            child: Text("Five",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
+            child: Text("SSix",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40)),
           ),
-          Text("Supriya Gupta",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40))
+          Text("Seven",style: TextStyle(fontStyle: FontStyle.italic, fontSize: 40))
 
         ],)
     );
