@@ -14,8 +14,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primarySwatch: Colors.blue,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        textTheme: TextTheme(
+          headlineLarge: TextStyle(fontFamily: 'FontRoboto', fontSize: 24),
+          headlineMedium:  TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+          headlineSmall:  TextStyle(fontWeight: FontWeight.w200, fontSize: 12)
+        )
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -29,6 +35,27 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
+
+  /*@override
+  State<MyHomePage> createState() => _MyCustomFontFont();*/
+
+}
+
+class _MyCustomFontFont extends State<MyHomePage>{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text("Flutter Container"),
+      ),
+      body:
+      Text("Supriya")
+      ,
+    );
+  }
+
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -66,8 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              title: Text(arrNames[index],style: TextStyle(fontFamily: 'FontRoboto', fontSize: 20)),
-              subtitle: Text('Delhi',),
+              title: Text(arrNames[index],style: Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colors.blue)),
+              subtitle: Text('Delhi',style: Theme.of(context).textTheme.headlineMedium),
               trailing: Icon(Icons.add) ,
             ),
           ),
