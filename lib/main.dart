@@ -79,6 +79,8 @@ class _MyCustomFontFont extends State<MyHomePage>{
               ),
               TextField(
                 controller: email,
+                obscureText: true,
+                obscuringCharacter: '*',
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
