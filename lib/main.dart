@@ -89,7 +89,11 @@ class _DateTimePickerPage extends State<MyHomePage> {
                   print('Time selected :: ${timeSelected.hour}');
                 }
 
-              }, child:Text("Select Time"))
+              }, child:Text("Select Time")),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Icon(Icons.play_circle_fill_outlined,color: Colors.blue, size: 50, ),
+              )
             ],
           ),
         ),
