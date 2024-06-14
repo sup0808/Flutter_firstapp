@@ -1,6 +1,7 @@
 import 'package:demp/uiHelper/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +49,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _DateTimePage extends State<MyHomePage> {
-  var time = DateTime.now();
+ var time = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +64,7 @@ class _DateTimePage extends State<MyHomePage> {
           child: Column(
             children: [
               Text(
-                "Current Date and time : ${time}",
+                "Current Date and time : ${DateFormat("yMMMMEEEEd").format(time)}",
                 style: TextStyle(fontSize: 20),),
               ElevatedButton(onPressed: () {
                 setState(() {
