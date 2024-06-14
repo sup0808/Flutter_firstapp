@@ -77,7 +77,19 @@ class _DateTimePickerPage extends State<MyHomePage> {
                   print('Date selected :: ${datePicked}');
                 }
               },
-                  child: Text("Get Time"))
+                  child: Text("Get Date")),
+
+              ElevatedButton(onPressed: () async {
+                var timeSelected = await  showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                initialEntryMode: TimePickerEntryMode.input);
+
+                if(timeSelected !=null){
+                  print('Time selected :: ${timeSelected.hour}');
+                }
+
+              }, child:Text("Select Time"))
             ],
           ),
         ),
