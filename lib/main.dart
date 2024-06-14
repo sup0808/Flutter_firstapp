@@ -95,7 +95,10 @@ class _MyCustomFontFont extends State<MyHomePage>{
                             color: Colors.red
                         )
 
-                    )
+                    ),
+                    suffixText: "Username exits",
+                    suffixIcon: Icon(Icons.contact_emergency, color: Colors.green,)
+                //  suffixIcon: IconButton(icon: Icons.e_mobiledata,onPressed: (){},)
                 ),
               ),
             ],
