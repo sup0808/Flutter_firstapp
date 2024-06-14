@@ -44,7 +44,47 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _DateTimePage();
+  State<MyHomePage> createState() => _DateTimePickerPage();
+
+}
+
+class _DateTimePickerPage extends State<MyHomePage> {
+  var time = DateTime.now();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+      body: Center(
+        child: Container(
+          width: 300,
+          height: 300,
+          child: Column(
+            children: [
+              Text(
+                "Select Date",
+                style: TextStyle(fontSize: 20),),
+              ElevatedButton(onPressed: () async {
+                DateTime? datePicked = await showDatePicker
+                    (context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2021),
+                    lastDate: DateTime(2026));
+
+                if(datePicked!=null){
+                  print('Date selected :: ${datePicked}');
+                }
+              },
+                  child: Text("Get Time"))
+            ],
+          ),
+        ),
+      )
+      ,
+    );
+  }
 
 }
 
