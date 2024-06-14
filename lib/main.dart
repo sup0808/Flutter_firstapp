@@ -65,6 +65,7 @@ class _MyCustomFontFont extends State<MyHomePage>{
               TextField(
                 controller:userName ,
                 decoration: InputDecoration(
+                    hintText: "Enter Username",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
@@ -78,9 +79,11 @@ class _MyCustomFontFont extends State<MyHomePage>{
                 height: 10,
               ),
               TextField(
+                keyboardType: TextInputType.number,
                 controller: email,
                 obscureText: true,
                 obscuringCharacter: '*',
+
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -103,8 +106,9 @@ class _MyCustomFontFont extends State<MyHomePage>{
                         )
 
                     ),
-                    suffixText: "Username exits",
-                    suffixIcon: Icon(Icons.contact_emergency, color: Colors.green,)
+                    hintText: "Enter Password",
+                    //suffixText: "Username exits",
+                    suffixIcon: Icon(Icons.remove_red_eye, color: Colors.green,)
                 //  suffixIcon: IconButton(icon: Icons.e_mobiledata,onPressed: (){},)
                 ),
               ),
@@ -114,7 +118,7 @@ class _MyCustomFontFont extends State<MyHomePage>{
 
                 String emailTxt =  email.text.toString();
                 print("Email :: $emailTxt");
-              }, child: Text("Submit"))
+              }, child: Text("Submit"),)
             ],
 
           ),
