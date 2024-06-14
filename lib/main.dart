@@ -46,6 +46,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyCustomFontFont extends State<MyHomePage>{
+  var userName  = TextEditingController();
+  var email = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +63,7 @@ class _MyCustomFontFont extends State<MyHomePage>{
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               TextField(
+                controller:userName ,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -74,6 +78,7 @@ class _MyCustomFontFont extends State<MyHomePage>{
                 height: 10,
               ),
               TextField(
+                controller: email,
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -101,6 +106,13 @@ class _MyCustomFontFont extends State<MyHomePage>{
                 //  suffixIcon: IconButton(icon: Icons.e_mobiledata,onPressed: (){},)
                 ),
               ),
+              ElevatedButton(onPressed: (){
+                String nameTxt =  userName.text.toString();
+                print("UserName :: $nameTxt");
+
+                String emailTxt =  email.text.toString();
+                print("Email :: $emailTxt");
+              }, child: Text("Submit"))
             ],
 
           ),
