@@ -35,11 +35,13 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+/*
   @override
   State<MyHomePage> createState() => _MyHomePageState();
+*/
 
-  /*@override
-  State<MyHomePage> createState() => _MyCustomFontFont();*/
+  @override
+  State<MyHomePage> createState() => _MyCustomFontFont();
 
 }
 
@@ -48,12 +50,59 @@ class _MyCustomFontFont extends State<MyHomePage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text("Flutter Container"),
+
       ),
       body:
-      Text("Supriya")
+      Center(
+        child: Container(
+          width: 300,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: Colors.orange
+                        )
+
+                    )
+                ),
+              ),
+              Container(
+                height: 10,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: Colors.orange
+                        )
+
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: Colors.green
+                        )
+
+                    ),
+                    disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide(
+                            color: Colors.red
+                        )
+
+                    )
+                ),
+              ),
+            ],
+
+          ),
+        ),
+      )
       ,
     );
   }
