@@ -45,7 +45,7 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _WrapWidgetPage();
+  State<MyHomePage> createState() => _DateTimePickerPage();
 
 }
 
@@ -142,23 +142,39 @@ class _DateTimePickerPage extends State<MyHomePage> {
               },
                   child: Text("Get Date")),
 
-              ElevatedButton(onPressed: () async {
-                var timeSelected = await  showTimePicker(
-                    context: context,
-                    initialTime: TimeOfDay.now(),
-                initialEntryMode: TimePickerEntryMode.input);
-
-                if(timeSelected !=null){
-                  print('Time selected :: ${timeSelected.hour}');
-                }
-
-              }, child:Text("Select Time")),
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: 30,
+                  minWidth: 100
+                ),
+                child: SizedBox.shrink(
+                 /* height: 50,
+                  width:200,*/
+                  child: ElevatedButton(onPressed: () async {
+                    var timeSelected = await  showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now(),
+                    initialEntryMode: TimePickerEntryMode.input);
+                
+                    if(timeSelected !=null){
+                      print('Time selected :: ${timeSelected.hour}');
+                    }
+                
+                  }, child:Text("Select Time"),style: ElevatedButton.styleFrom(backgroundColor: Colors.blue,
+                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      textStyle: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold)),),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(Icons.play_circle_fill_outlined,color: Colors.blue, size: 50, ),
               ),
               FaIcon(FontAwesomeIcons.facebook,size: 50,color: Colors.redAccent,)
             ],
+
           ),
         ),
       )
