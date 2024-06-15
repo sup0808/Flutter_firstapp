@@ -23,12 +23,10 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           textTheme: TextTheme(
               headlineLarge: TextStyle(fontFamily: 'FontRoboto', fontSize: 24),
-              headlineMedium: TextStyle(
-                  fontWeight: FontWeight.w400, fontSize: 16),
-              headlineSmall: TextStyle(
-                  fontWeight: FontWeight.w200, fontSize: 12)
-          )
-      ),
+              headlineMedium:
+              TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+              headlineSmall:
+              TextStyle(fontWeight: FontWeight.w200, fontSize: 12))),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -45,30 +43,61 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _ExpandedWidgetPage();
-
+  State<MyHomePage> createState() => _GridViewPage();
 }
 
-class _ExpandedWidgetPage extends State<MyHomePage> {
+class _GridViewPage extends State<MyHomePage> {
+  var arrColors = [
+    Colors.indigo,
+    Colors.orange,
+    Colors.grey,
+    Colors.black12,
+    Colors.red,
+    Colors.pink,
+    Colors.purpleAccent,
+    Colors.greenAccent,
 
+  ];
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(),
+      body: Container(
+        width :200,
+        child: GridView.count(
+            crossAxisCount: 6,
+            crossAxisSpacing: 11,
+            mainAxisSpacing: 11,
+            children: [
+            Container(color: arrColors[0]),
+        Container(color: arrColors[1]),
+        Container(color: arrColors[2]),
+        Container(color: arrColors[3]),
+        Container(color: arrColors[4]),
+        Container(color: arrColors[5]),
+        Container(color: arrColors[6]),
+        Container(color: arrColors[7]),
+            ],
+            ),
+      )
+    ,
+    );
+  }
+}
 
-      ),
-      body:
-      Row(
+class _ExpandedWidgetPage extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
             width: 100,
             height: 200,
             color: Colors.grey,
-
           ),
           Expanded(
             flex: 1,
@@ -76,66 +105,49 @@ class _ExpandedWidgetPage extends State<MyHomePage> {
               width: 100,
               height: 200,
               color: Colors.greenAccent,
-
             ),
           ),
           Expanded(
-            flex:2,
+            flex: 2,
             child: Container(
               width: 100,
               height: 200,
               color: Colors.orange,
-            
             ),
           ),
-          
         ],
-      )
-      ,
+      ),
     );
   }
-
 }
 
 class _ContainerDecorationPage extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
-      appBar: AppBar(
-
-      ),
-      body:
-      Container(
+      appBar: AppBar(),
+      body: Container(
         width: double.infinity,
         height: 200,
         color: Colors.grey,
         child: Center(
           child: Container(
-            width: 100,
-            height: 100,
-
+              width: 100,
+              height: 100,
               decoration: BoxDecoration(
                   color: Colors.orange,
-                //  borderRadius: BorderRadius.all(Radius.circular(12))
-                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(width :6,color: Colors.black12),
+                  //  borderRadius: BorderRadius.all(Radius.circular(12))
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(width: 6, color: Colors.black12),
                   boxShadow: [
-                  BoxShadow(blurRadius: 11,color: Colors.red,spreadRadius: 7),
-
-              ],
-                shape: BoxShape.rectangle
-              )
-          ),
+                    BoxShadow(
+                        blurRadius: 11, color: Colors.red, spreadRadius: 7),
+                  ],
+                  shape: BoxShape.rectangle)),
         ),
-      )
-      ,
+      ),
     );
   }
-
 }
 
 class _RangeSliderPage extends State<MyHomePage> {
@@ -143,29 +155,22 @@ class _RangeSliderPage extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
-    RangeLabels rangeLabels = RangeLabels(rangeValues.start.toString(), rangeValues.end.toString());
+    RangeLabels rangeLabels =
+    RangeLabels(rangeValues.start.toString(), rangeValues.end.toString());
     return Scaffold(
-      appBar: AppBar(
-
-      ),
+      appBar: AppBar(),
       body: RangeSlider(
         values: rangeValues,
         labels: rangeLabels,
-        onChanged: (newValue){
+        onChanged: (newValue) {
           rangeValues = newValue;
           print('${newValue.start}');
-          setState(() {
-
-          });
+          setState(() {});
         },
-      )
-      ,
+      ),
     );
   }
-
 }
-
 
 class _WrapWidgetPage extends State<MyHomePage> {
   var time = DateTime.now();
@@ -173,60 +178,53 @@ class _WrapWidgetPage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-      ),
-      body:
-      Wrap(
+      appBar: AppBar(),
+      body: Wrap(
         direction: Axis.horizontal,
-          runSpacing: 10,
-          alignment: WrapAlignment.spaceBetween,
-          spacing: 10,
-          children: [
-            Container(
+        runSpacing: 10,
+        alignment: WrapAlignment.spaceBetween,
+        spacing: 10,
+        children: [
+          Container(
+            width: 100,
+            height: 100,
+            color: Colors.orange,
+          ),
+          Container(
+            width: 100,
+            height: 100,
+            color: Colors.blue,
+          ),
+          Container(
+            width: 100,
+            height: 100,
+            color: Colors.redAccent,
+          ),
+          Positioned(
+            left: 30,
+            right: 30,
+            top: 30,
+            bottom: 30,
+            child: Container(
               width: 100,
               height: 100,
-              color: Colors.orange,
-            )
-            ,
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.blue,
+              color: Colors.green,
             ),
-            Container(
-              width: 100,
-              height: 100,
-              color: Colors.redAccent,
-            ),
-
-            Positioned(
-              left: 30,
-              right: 30,
-              top: 30,
-              bottom: 30,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.green,
-              ),
-            ),
-
-            RichText(text: TextSpan(
-                children:<TextSpan>[
-                  TextSpan(text:"Hello"),
-                  TextSpan(text:  "Supriya", style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.blue ))
-                ]
-            ))
-
-          ],
-        ),
-
-
-
+          ),
+          RichText(
+              text: TextSpan(children: <TextSpan>[
+                TextSpan(text: "Hello"),
+                TextSpan(
+                    text: "Supriya",
+                    style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue))
+              ]))
+        ],
+      ),
     );
   }
-
 }
 
 class _DateTimePickerPage extends State<MyHomePage> {
@@ -235,9 +233,7 @@ class _DateTimePickerPage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-      ),
+      appBar: AppBar(),
       body: Center(
         child: Container(
           width: 300,
@@ -246,53 +242,64 @@ class _DateTimePickerPage extends State<MyHomePage> {
             children: [
               Text(
                 "Select Date",
-                style: TextStyle(fontSize: 20),),
-              ElevatedButton(onPressed: () async {
-                DateTime? datePicked = await showDatePicker
-                    (context: context,
-                    initialDate: DateTime.now(),
-                    firstDate: DateTime(2021),
-                    lastDate: DateTime(2026));
+                style: TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                  onPressed: () async {
+                    DateTime? datePicked = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(2021),
+                        lastDate: DateTime(2026));
 
-                if(datePicked!=null){
-                  print('Date selected :: ${datePicked}');
-                }
-              },
+                    if (datePicked != null) {
+                      print('Date selected :: ${datePicked}');
+                    }
+                  },
                   child: Text("Get Date")),
-
               SizedBox.square(
                 dimension: 100,
-                child: ElevatedButton(onPressed: () async {
-                  var timeSelected = await  showTimePicker(
-                      context: context,
-                      initialTime: TimeOfDay.now(),
-                  initialEntryMode: TimePickerEntryMode.input);
+                child: ElevatedButton(
+                  onPressed: () async {
+                    var timeSelected = await showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now(),
+                        initialEntryMode: TimePickerEntryMode.input);
 
-                  if(timeSelected !=null){
-                    print('Time selected :: ${timeSelected.hour}');
-                  }
-
-                }, child:Text("Select Time"),style: ElevatedButton.styleFrom(backgroundColor: Colors.blue,
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    textStyle: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold)),),
+                    if (timeSelected != null) {
+                      print('Time selected :: ${timeSelected.hour}');
+                    }
+                  },
+                  child: Text("Select Time"),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding:
+                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      textStyle: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold)),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Icon(Icons.play_circle_fill_outlined,color: Colors.blue, size: 50, ),
+                child: Icon(
+                  Icons.play_circle_fill_outlined,
+                  color: Colors.blue,
+                  size: 50,
+                ),
               ),
-              FaIcon(FontAwesomeIcons.facebook,size: 50,color: Colors.redAccent,)
+              FaIcon(
+                FontAwesomeIcons.facebook,
+                size: 50,
+                color: Colors.redAccent,
+              )
             ],
-
           ),
         ),
-      )
-      ,
+      ),
     );
   }
-
 }
 
 class _StackPage extends State<MyHomePage> {
@@ -301,11 +308,8 @@ class _StackPage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-      ),
-      body:
-      Container(
+      appBar: AppBar(),
+      body: Container(
         width: 300,
         height: 300,
         child: Stack(
@@ -314,8 +318,7 @@ class _StackPage extends State<MyHomePage> {
               width: 250,
               height: 250,
               color: Colors.orange,
-            )
-            ,
+            ),
             Positioned(
               left: 30,
               right: 30,
@@ -327,33 +330,30 @@ class _StackPage extends State<MyHomePage> {
                 color: Colors.green,
               ),
             ),
-            
-            RichText(text: TextSpan(
-              children:<TextSpan>[
-                    TextSpan(text:"Hello"),
-                    TextSpan(text:  "Supriya", style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.blue ))
-              ]
-            ))
-
+            RichText(
+                text: TextSpan(children: <TextSpan>[
+                  TextSpan(text: "Hello"),
+                  TextSpan(
+                      text: "Supriya",
+                      style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue))
+                ]))
           ],
         ),
-      )
-
-      ,
+      ),
     );
   }
-
 }
 
 class _DateTimePage extends State<MyHomePage> {
- var time = DateTime.now();
+  var time = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-      ),
+      appBar: AppBar(),
       body: Center(
         child: Container(
           width: 300,
@@ -361,22 +361,21 @@ class _DateTimePage extends State<MyHomePage> {
           child: Column(
             children: [
               Text(
-                "Current Date and time : ${DateFormat("yMMMMEEEEd").format(time)}",
-                style: TextStyle(fontSize: 20),),
-              ElevatedButton(onPressed: () {
-                setState(() {
-
-                });
-              },
+                "Current Date and time : ${DateFormat("yMMMMEEEEd").format(
+                    time)}",
+                style: TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
                   child: Text("Get Time"))
             ],
           ),
         ),
-      )
-      ,
+      ),
     );
   }
-
 }
 
 class _MyCustomFontFont extends State<MyHomePage> {
@@ -386,11 +385,8 @@ class _MyCustomFontFont extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-
-      ),
-      body:
-      Center(
+      appBar: AppBar(),
+      body: Center(
         child: Container(
           width: 300,
           child: Column(
@@ -402,12 +398,7 @@ class _MyCustomFontFont extends State<MyHomePage> {
                     hintText: "Enter Username",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: Colors.orange
-                        )
-
-                    )
-                ),
+                        borderSide: BorderSide(color: Colors.orange))),
               ),
               Container(
                 height: 10,
@@ -417,51 +408,41 @@ class _MyCustomFontFont extends State<MyHomePage> {
                 controller: email,
                 obscureText: true,
                 obscuringCharacter: '*',
-
                 decoration: InputDecoration(
                     focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: Colors.orange
-                        )
-
-                    ),
+                        borderSide: BorderSide(color: Colors.orange)),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: Colors.green
-                        )
-
-                    ),
+                        borderSide: BorderSide(color: Colors.green)),
                     disabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(
-                            color: Colors.red
-                        )
-
-                    ),
+                        borderSide: BorderSide(color: Colors.red)),
                     hintText: "Enter Password",
                     //suffixText: "Username exits",
-                    suffixIcon: Icon(Icons.remove_red_eye, color: Colors.green,)
+                    suffixIcon: Icon(
+                      Icons.remove_red_eye,
+                      color: Colors.green,
+                    )
                   //  suffixIcon: IconButton(icon: Icons.e_mobiledata,onPressed: (){},)
                 ),
               ),
-              ElevatedButton(onPressed: () {
-                String nameTxt = userName.text.toString();
-                print("UserName :: $nameTxt");
+              ElevatedButton(
+                onPressed: () {
+                  String nameTxt = userName.text.toString();
+                  print("UserName :: $nameTxt");
 
-                String emailTxt = email.text.toString();
-                print("Email :: $emailTxt");
-              }, child: Text("Submit"),)
+                  String emailTxt = email.text.toString();
+                  print("Email :: $emailTxt");
+                },
+                child: Text("Submit"),
+              )
             ],
-
           ),
         ),
-      )
-      ,
+      ),
     );
   }
-
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -507,12 +488,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                title: Text(arrNames[index], style: Theme
-                    .of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(color: Colors.blue)),
-                subtitle: Text('Delhi', style: basicTextStyle(),),
+                title: Text(arrNames[index],
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .headlineLarge!
+                        .copyWith(color: Colors.blue)),
+                subtitle: Text(
+                  'Delhi',
+                  style: basicTextStyle(),
+                ),
                 trailing: Icon(Icons.add),
               ),
             ),
@@ -522,7 +507,10 @@ class _MyHomePageState extends State<MyHomePage> {
         reverse: false,
         scrollDirection: Axis.vertical,
         separatorBuilder: (BuildContext context, int index) {
-          return Divider(height: 10, thickness: 3,);
+          return Divider(
+            height: 10,
+            thickness: 3,
+          );
         },
       ),
     );
