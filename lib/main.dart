@@ -45,7 +45,69 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _StackPage();
+  State<MyHomePage> createState() => _WrapWidgetPage();
+
+}
+
+class _WrapWidgetPage extends State<MyHomePage> {
+  var time = DateTime.now();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+      body:
+      Wrap(
+        direction: Axis.horizontal,
+          runSpacing: 10,
+          alignment: WrapAlignment.spaceBetween,
+          spacing: 10,
+          children: [
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.orange,
+            )
+            ,
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.blue,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.redAccent,
+            ),
+
+            Positioned(
+              left: 30,
+              right: 30,
+              top: 30,
+              bottom: 30,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.green,
+              ),
+            ),
+
+            RichText(text: TextSpan(
+                children:<TextSpan>[
+                  TextSpan(text:"Hello"),
+                  TextSpan(text:  "Supriya", style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.blue ))
+                ]
+            ))
+
+          ],
+        ),
+
+
+
+    );
+  }
 
 }
 
