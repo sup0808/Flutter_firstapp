@@ -63,13 +63,24 @@ class _ContainerDecorationPage extends State<MyHomePage> {
       body:
       Container(
         width: double.infinity,
-        height: double.infinity,
+        height: 200,
         color: Colors.grey,
         child: Center(
           child: Container(
             width: 100,
             height: 100,
-            color: Colors.orange,
+
+              decoration: BoxDecoration(
+                  color: Colors.orange,
+                //  borderRadius: BorderRadius.all(Radius.circular(12))
+                   borderRadius: BorderRadius.circular(12),
+                  border: Border.all(width :6,color: Colors.black12),
+                  boxShadow: [
+                  BoxShadow(blurRadius: 11,color: Colors.red,spreadRadius: 7),
+
+              ],
+                shape: BoxShape.rectangle
+              )
           ),
         ),
       )
