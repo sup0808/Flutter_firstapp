@@ -63,23 +63,54 @@ class _GridViewPage extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
-        width :200,
-        child: GridView.count(
-            crossAxisCount: 6,
-            crossAxisSpacing: 11,
-            mainAxisSpacing: 11,
-            children: [
-            Container(color: arrColors[0]),
-        Container(color: arrColors[1]),
-        Container(color: arrColors[2]),
-        Container(color: arrColors[3]),
-        Container(color: arrColors[4]),
-        Container(color: arrColors[5]),
-        Container(color: arrColors[6]),
-        Container(color: arrColors[7]),
-            ],
-            ),
+      body: Column(
+        children: [
+          /*Container(
+            width :400,
+            child: GridView.count(
+                crossAxisCount: 4,
+                crossAxisSpacing: 11,
+                mainAxisSpacing: 11,
+                children: [
+                Container(color: arrColors[0]),
+            Container(color: arrColors[1]),
+            Container(color: arrColors[2]),
+            Container(color: arrColors[3]),
+            Container(color: arrColors[4]),
+            Container(color: arrColors[5]),
+            Container(color: arrColors[6]),
+            Container(color: arrColors[7]),
+                ],
+                ),
+          ),*/
+
+          Container(height: 50,
+            child: GridView.builder( itemBuilder: (context,index){
+               return Container(color: arrColors[index],);
+            }, itemCount: arrColors.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 11,
+              crossAxisSpacing: 11
+            ),),
+          )
+
+         /* Container(
+            height: 400,
+            child: GridView.extent(maxCrossAxisExtent: 200,
+              children: [
+                Container(color: arrColors[0]),
+                Container(color: arrColors[1]),
+                Container(color: arrColors[2]),
+                Container(color: arrColors[3]),
+                Container(color: arrColors[4]),
+                Container(color: arrColors[5]),
+                Container(color: arrColors[6]),
+                Container(color: arrColors[7]),
+            ],),
+          )*/
+
+        ],
       )
     ,
     );
