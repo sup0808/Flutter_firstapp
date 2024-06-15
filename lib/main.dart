@@ -138,6 +138,13 @@ class _StackPage extends State<MyHomePage> {
                 color: Colors.green,
               ),
             ),
+            
+            RichText(text: TextSpan(
+              children:<TextSpan>[
+                    TextSpan(text:"Hello"),
+                    TextSpan(text:  "Supriya", style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.blue ))
+              ]
+            ))
 
           ],
         ),
