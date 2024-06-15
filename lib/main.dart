@@ -2,6 +2,7 @@ import 'package:demp/uiHelper/util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _DateTimePickerPage();
+  State<MyHomePage> createState() => _StackPage();
 
 }
 
@@ -93,11 +94,55 @@ class _DateTimePickerPage extends State<MyHomePage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(Icons.play_circle_fill_outlined,color: Colors.blue, size: 50, ),
-              )
+              ),
+              FaIcon(FontAwesomeIcons.facebook,size: 50,color: Colors.redAccent,)
             ],
           ),
         ),
       )
+      ,
+    );
+  }
+
+}
+
+class _StackPage extends State<MyHomePage> {
+  var time = DateTime.now();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+      body:
+      Container(
+        width: 300,
+        height: 300,
+        child: Stack(
+          children: [
+            Container(
+              width: 250,
+              height: 250,
+              color: Colors.orange,
+            )
+            ,
+            Positioned(
+              left: 30,
+              right: 30,
+              top: 30,
+              bottom: 30,
+              child: Container(
+                width: 200,
+                height: 200,
+                color: Colors.green,
+              ),
+            ),
+
+          ],
+        ),
+      )
+
       ,
     );
   }
