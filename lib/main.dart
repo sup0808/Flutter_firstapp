@@ -1,4 +1,5 @@
 import 'package:demp/uiHelper/util.dart';
+import 'package:demp/widgets/rounded_btn.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -24,9 +25,12 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
               headlineLarge: TextStyle(fontFamily: 'FontRoboto', fontSize: 24),
               headlineMedium:
-              TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                  TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
               headlineSmall:
-              TextStyle(fontWeight: FontWeight.w200, fontSize: 12))),
+                  TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
+
+          )),
+
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -56,7 +60,6 @@ class _GridViewPage extends State<MyHomePage> {
     Colors.pink,
     Colors.purpleAccent,
     Colors.greenAccent,
-
   ];
 
   @override
@@ -84,18 +87,21 @@ class _GridViewPage extends State<MyHomePage> {
                 ),
           ),*/
 
-          Container(height: 50,
-            child: GridView.builder( itemBuilder: (context,index){
-               return Container(color: arrColors[index],);
-            }, itemCount: arrColors.length,
+          Container(
+            height: 50,
+            child: GridView.builder(
+              itemBuilder: (context, index) {
+                return Container(
+                  color: arrColors[index],
+                );
+              },
+              itemCount: arrColors.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              mainAxisSpacing: 11,
-              crossAxisSpacing: 11
-            ),),
+                  crossAxisCount: 3, mainAxisSpacing: 11, crossAxisSpacing: 11),
+            ),
           )
 
-         /* Container(
+          /* Container(
             height: 400,
             child: GridView.extent(maxCrossAxisExtent: 200,
               children: [
@@ -109,124 +115,167 @@ class _GridViewPage extends State<MyHomePage> {
                 Container(color: arrColors[7]),
             ],),
           )*/
-
         ],
-      )
-    ,
+      ),
     );
   }
 }
-
 
 class _SplitingWidgetPage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body:
-        Container(
-          child: Column(
-            children: [
-              CategoryList(),
+      body: Container(
+        child: Column(
+          children: [
+            CustomWidget()
+            /* CategoryList(),
               UserDetail(),
               RectangleSlider(),
-              ImageDetail()
-            ],
-          ),
+              ImageDetail()*/
+          ],
         ),
-
+      ),
     );
   }
 }
 
-class CategoryList extends StatelessWidget{
+class CustomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-   return Expanded(
-     flex: 2,
-     child: Container(
-       color: Colors.indigo,
-       child: ListView.builder(itemBuilder: (context,index)=>SizedBox(
-         width: 100,
-         child: Padding(
-           padding: const EdgeInsets.all(8.0),
-           child: CircleAvatar(
-             child: Text("Sup"),
-           ),
-         ),
-       ),
-         scrollDirection: Axis.horizontal,
-         itemCount: 10,
-       ),
-     ),
-   );
-  }
+    return Center(
+      child: Column(mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 200,
+            child: RoundedBtn(
+              btnName: "Login",
+              icon: Icon(Icons.lock),
+              textStyle: TextStyle(fontSize: 24),
+              callback: () {
+                print("Login In...  ");
+              },
+            ),
+          ),
+          Container(
+            height: 20,
+          ),
+          Container(
+            width: 200,
+            child: RoundedBtn(
+              btnName: "Play",
+              icon: Icon(Icons.play_circle),
+              color: Colors.orange,
+              textStyle:TextStyle(fontSize: 24,color: Colors.black) ,
+              callback: () {
+                print("Login In...  ");
+              },
+            ),
+          ),
 
+        ],
+      ),
+    );
+  }
 }
 
-class UserDetail extends StatelessWidget{
+class CategoryList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: Container(
+        color: Colors.indigo,
+        child: ListView.builder(
+          itemBuilder: (context, index) => SizedBox(
+            width: 100,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                child: Text("Sup"),
+              ),
+            ),
+          ),
+          scrollDirection: Axis.horizontal,
+          itemCount: 10,
+        ),
+      ),
+    );
+  }
+}
+
+class UserDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 4,
       child: Container(
         color: Colors.orange,
-        child: ListView.builder(itemBuilder: (context,index)=> ListTile(
-          leading: Image.asset('assets/images/logo.png',height: 30,width: 30,),
-          title: Text("Name"),
-          subtitle: Text("Delhi"),
-          trailing: Icon(Icons.contact_emergency,color: Colors.blue,),
-        ),
+        child: ListView.builder(
+          itemBuilder: (context, index) => ListTile(
+            leading: Image.asset(
+              'assets/images/logo.png',
+              height: 30,
+              width: 30,
+            ),
+            title: Text("Name"),
+            subtitle: Text("Delhi"),
+            trailing: Icon(
+              Icons.contact_emergency,
+              color: Colors.blue,
+            ),
+          ),
           itemCount: 10,
         ),
       ),
     );
   }
-
 }
 
-class RectangleSlider extends StatelessWidget{
+class RectangleSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
       flex: 1,
       child: Container(
         color: Colors.greenAccent,
-        child: ListView.builder(itemBuilder: (context,index)=>
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: 200,
-                decoration: BoxDecoration(
-                    color: Colors.blueGrey,
-                    border: Border.all(color: Colors.pink,width: 5),
-                    borderRadius: BorderRadius.all(Radius.circular(5))
-                ),
-              ),
+        child: ListView.builder(
+          itemBuilder: (context, index) => Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              width: 200,
+              decoration: BoxDecoration(
+                  color: Colors.blueGrey,
+                  border: Border.all(color: Colors.pink, width: 5),
+                  borderRadius: BorderRadius.all(Radius.circular(5))),
             ),
+          ),
           scrollDirection: Axis.horizontal,
         ),
       ),
     );
   }
-
 }
 
-class ImageDetail extends StatelessWidget{
+class ImageDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-   return Expanded(
+    return Expanded(
       flex: 2,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
           color: Colors.pink,
-          child: Image.asset('assets/images/flutter.png',height: 100,width: 300,),
+          child: Image.asset(
+            'assets/images/flutter.png',
+            height: 100,
+            width: 300,
+          ),
         ),
       ),
     );
   }
-  
 }
 
 class _ExpandedWidgetPage extends State<MyHomePage> {
@@ -299,7 +348,7 @@ class _RangeSliderPage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     RangeLabels rangeLabels =
-    RangeLabels(rangeValues.start.toString(), rangeValues.end.toString());
+        RangeLabels(rangeValues.start.toString(), rangeValues.end.toString());
     return Scaffold(
       appBar: AppBar(),
       body: RangeSlider(
@@ -356,14 +405,14 @@ class _WrapWidgetPage extends State<MyHomePage> {
           ),
           RichText(
               text: TextSpan(children: <TextSpan>[
-                TextSpan(text: "Hello"),
-                TextSpan(
-                    text: "Supriya",
-                    style: TextStyle(
-                        fontSize: 36,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue))
-              ]))
+            TextSpan(text: "Hello"),
+            TextSpan(
+                text: "Supriya",
+                style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue))
+          ]))
         ],
       ),
     );
@@ -417,7 +466,7 @@ class _DateTimePickerPage extends State<MyHomePage> {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                       padding:
-                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                       textStyle: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -475,14 +524,14 @@ class _StackPage extends State<MyHomePage> {
             ),
             RichText(
                 text: TextSpan(children: <TextSpan>[
-                  TextSpan(text: "Hello"),
-                  TextSpan(
-                      text: "Supriya",
-                      style: TextStyle(
-                          fontSize: 36,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue))
-                ]))
+              TextSpan(text: "Hello"),
+              TextSpan(
+                  text: "Supriya",
+                  style: TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue))
+            ]))
           ],
         ),
       ),
@@ -504,8 +553,7 @@ class _DateTimePage extends State<MyHomePage> {
           child: Column(
             children: [
               Text(
-                "Current Date and time : ${DateFormat("yMMMMEEEEd").format(
-                    time)}",
+                "Current Date and time : ${DateFormat("yMMMMEEEEd").format(time)}",
                 style: TextStyle(fontSize: 20),
               ),
               ElevatedButton(
@@ -567,8 +615,8 @@ class _MyCustomFontFont extends State<MyHomePage> {
                       Icons.remove_red_eye,
                       color: Colors.green,
                     )
-                  //  suffixIcon: IconButton(icon: Icons.e_mobiledata,onPressed: (){},)
-                ),
+                    //  suffixIcon: IconButton(icon: Icons.e_mobiledata,onPressed: (){},)
+                    ),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -632,8 +680,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 title: Text(arrNames[index],
-                    style: Theme
-                        .of(context)
+                    style: Theme.of(context)
                         .textTheme
                         .headlineLarge!
                         .copyWith(color: Colors.blue)),
