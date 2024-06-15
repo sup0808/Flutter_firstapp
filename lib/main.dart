@@ -43,7 +43,7 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _GridViewPage();
+  State<MyHomePage> createState() => _SplitingWidgetPage();
 }
 
 class _GridViewPage extends State<MyHomePage> {
@@ -115,6 +115,118 @@ class _GridViewPage extends State<MyHomePage> {
     ,
     );
   }
+}
+
+
+class _SplitingWidgetPage extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body:
+        Container(
+          child: Column(
+            children: [
+              CategoryList(),
+              UserDetail(),
+              RectangleSlider(),
+              ImageDetail()
+            ],
+          ),
+        ),
+
+    );
+  }
+}
+
+class CategoryList extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+   return Expanded(
+     flex: 2,
+     child: Container(
+       color: Colors.indigo,
+       child: ListView.builder(itemBuilder: (context,index)=>SizedBox(
+         width: 100,
+         child: Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: CircleAvatar(
+             child: Text("Sup"),
+           ),
+         ),
+       ),
+         scrollDirection: Axis.horizontal,
+         itemCount: 10,
+       ),
+     ),
+   );
+  }
+
+}
+
+class UserDetail extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 4,
+      child: Container(
+        color: Colors.orange,
+        child: ListView.builder(itemBuilder: (context,index)=> ListTile(
+          leading: Image.asset('assets/images/logo.png',height: 30,width: 30,),
+          title: Text("Name"),
+          subtitle: Text("Delhi"),
+          trailing: Icon(Icons.contact_emergency,color: Colors.blue,),
+        ),
+          itemCount: 10,
+        ),
+      ),
+    );
+  }
+
+}
+
+class RectangleSlider extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 1,
+      child: Container(
+        color: Colors.greenAccent,
+        child: ListView.builder(itemBuilder: (context,index)=>
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: 200,
+                decoration: BoxDecoration(
+                    color: Colors.blueGrey,
+                    border: Border.all(color: Colors.pink,width: 5),
+                    borderRadius: BorderRadius.all(Radius.circular(5))
+                ),
+              ),
+            ),
+          scrollDirection: Axis.horizontal,
+        ),
+      ),
+    );
+  }
+
+}
+
+class ImageDetail extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+   return Expanded(
+      flex: 2,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          color: Colors.pink,
+          child: Image.asset('assets/images/flutter.png',height: 100,width: 300,),
+        ),
+      ),
+    );
+  }
+  
 }
 
 class _ExpandedWidgetPage extends State<MyHomePage> {
