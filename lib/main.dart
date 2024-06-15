@@ -70,17 +70,21 @@ class _ExpandedWidgetPage extends State<MyHomePage> {
             color: Colors.grey,
 
           ),
-          Container(
-            width: 100,
-            height: 200,
-            color: Colors.orange,
-
-          ),
           Expanded(
+            flex: 1,
             child: Container(
               width: 100,
               height: 200,
               color: Colors.greenAccent,
+
+            ),
+          ),
+          Expanded(
+            flex:2,
+            child: Container(
+              width: 100,
+              height: 200,
+              color: Colors.orange,
             
             ),
           ),
