@@ -142,6 +142,10 @@ class _SplitingWidgetPage extends State<MyHomePage> {
 }
 
 class CustomWidget extends StatelessWidget {
+  login(){
+    print("Play clicked");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -168,9 +172,7 @@ class CustomWidget extends StatelessWidget {
               icon: Icon(Icons.play_circle),
               color: Colors.orange,
               textStyle:TextStyle(fontSize: 24,color: Colors.black) ,
-              callback: () {
-                print("Login In...  ");
-              },
+              callback: login,
             ),
           ),
 
