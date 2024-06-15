@@ -45,9 +45,68 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _DateTimePickerPage();
+  State<MyHomePage> createState() => _ContainerDecorationPage();
 
 }
+
+class _ContainerDecorationPage extends State<MyHomePage> {
+
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+      body:
+      Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.grey,
+        child: Center(
+          child: Container(
+            width: 100,
+            height: 100,
+            color: Colors.orange,
+          ),
+        ),
+      )
+      ,
+    );
+  }
+
+}
+
+class _RangeSliderPage extends State<MyHomePage> {
+  RangeValues rangeValues = RangeValues(0, 1);
+
+  @override
+  Widget build(BuildContext context) {
+    
+    RangeLabels rangeLabels = RangeLabels(rangeValues.start.toString(), rangeValues.end.toString());
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+      body: RangeSlider(
+        values: rangeValues,
+        labels: rangeLabels,
+        onChanged: (newValue){
+          rangeValues = newValue;
+          print('${newValue.start}');
+          setState(() {
+
+          });
+        },
+      )
+      ,
+    );
+  }
+
+}
+
 
 class _WrapWidgetPage extends State<MyHomePage> {
   var time = DateTime.now();
