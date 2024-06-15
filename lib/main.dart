@@ -45,7 +45,51 @@ class MyHomePage extends StatefulWidget {
 */
 
   @override
-  State<MyHomePage> createState() => _ContainerDecorationPage();
+  State<MyHomePage> createState() => _ExpandedWidgetPage();
+
+}
+
+class _ExpandedWidgetPage extends State<MyHomePage> {
+
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Scaffold(
+      appBar: AppBar(
+
+      ),
+      body:
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 100,
+            height: 200,
+            color: Colors.grey,
+
+          ),
+          Container(
+            width: 100,
+            height: 200,
+            color: Colors.orange,
+
+          ),
+          Expanded(
+            child: Container(
+              width: 100,
+              height: 200,
+              color: Colors.greenAccent,
+            
+            ),
+          ),
+          
+        ],
+      )
+      ,
+    );
+  }
 
 }
 
