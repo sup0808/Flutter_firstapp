@@ -142,9 +142,8 @@ class _DateTimePickerPage extends State<MyHomePage> {
               },
                   child: Text("Get Date")),
 
-              SizedBox(
-                height: 50,
-                width:200,
+              SizedBox.square(
+                dimension: 100,
                 child: ElevatedButton(onPressed: () async {
                   var timeSelected = await  showTimePicker(
                       context: context,
