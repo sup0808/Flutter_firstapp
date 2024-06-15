@@ -1,3 +1,4 @@
+import 'package:demp/loginPage.dart';
 import 'package:demp/uiHelper/util.dart';
 import 'package:demp/widgets/rounded_btn.dart';
 import 'package:flutter/material.dart';
@@ -142,7 +143,7 @@ class _SplitingWidgetPage extends State<MyHomePage> {
 }
 
 class CustomWidget extends StatelessWidget {
-  login(){
+  play(){
     print("Play clicked");
   }
 
@@ -157,8 +158,10 @@ class CustomWidget extends StatelessWidget {
               btnName: "Login",
               icon: Icon(Icons.lock),
               textStyle: TextStyle(fontSize: 24),
-              callback: () {
-                print("Login In...  ");
+              callback: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return LoginPage();
+                }));
               },
             ),
           ),
@@ -172,7 +175,7 @@ class CustomWidget extends StatelessWidget {
               icon: Icon(Icons.play_circle),
               color: Colors.orange,
               textStyle:TextStyle(fontSize: 24,color: Colors.black) ,
-              callback: login,
+              callback: play,
             ),
           ),
 
