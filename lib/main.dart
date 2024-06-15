@@ -1,3 +1,4 @@
+import 'package:demp/SplashPage.dart';
 import 'package:demp/loginPage.dart';
 import 'package:demp/uiHelper/util.dart';
 import 'package:demp/widgets/rounded_btn.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
 
           )),
 
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:  SplashPage(),
     );
   }
 }
@@ -145,6 +146,7 @@ class _SplitingWidgetPage extends State<MyHomePage> {
 class CustomWidget extends StatelessWidget {
   play(){
     print("Play clicked");
+
   }
 
   @override
