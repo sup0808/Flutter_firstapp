@@ -6,19 +6,36 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ProfileScreen extends StatefulWidget {
   String? userName;
 
+
+
   ProfileScreen(this.userName);
 
   @override
   State<ProfileScreen> createState() => _ProfilescreenState();
 }
 
-class _ProfilescreenState extends State<ProfileScreen> {
+class _ProfilescreenState extends State<ProfileScreen>
+    with SingleTickerProviderStateMixin {
   String? name;
   String? password;
+
+  late Animation animation;
+  late AnimationController animationController;
 
   @override
   void initState() {
     super.initState();
+    animationController = AnimationController(vsync: this,duration: Duration(seconds: 4));
+    animation = Tween(begin: 200.0,end: 100.0).animate(animationController);
+    
+    animationController.addListener((){
+      print(animation.value);
+      setState(() {
+
+      });
+    });
+
+    animationController.forward();
     getValue();
   }
 
@@ -30,7 +47,8 @@ class _ProfilescreenState extends State<ProfileScreen> {
       ),
       body: Center(
         child: Container(
-            width: 300,
+            width: animation.value,
+            height: animation.value,
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               /* Text("Welcome ${widget.userName}", style: TextStyle(fontSize: 24),),
