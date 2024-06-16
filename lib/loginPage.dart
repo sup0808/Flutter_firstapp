@@ -2,6 +2,7 @@ import 'package:demp/ProfileScreen.dart';
 import 'package:demp/widgets/rounded_btn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatelessWidget {
   var userNameCtl = TextEditingController();
@@ -34,9 +35,12 @@ class LoginPage extends StatelessWidget {
                     btnName: "Submit",
                     color: Colors.white24,
                     textStyle: TextStyle(fontSize: 24),
-                    callback: () {
+                    callback: () async {
                       var userName = userNameCtl.text.toString();
                       var password = passwordCtl.text.toString();
+                      var sharedf = await  SharedPreferences.getInstance();
+                      sharedf.setString("UserName", userName);
+                      sharedf.setString("Password", password);
 
                       Navigator.push(
                           context,

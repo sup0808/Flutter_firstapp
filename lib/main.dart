@@ -25,23 +25,18 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
           textTheme: TextTheme(
-              headlineLarge: TextStyle(fontFamily: 'FontRoboto', fontSize: 24),
-              headlineMedium:
-                  TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
-              headlineSmall:
-                  TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
-
+            headlineLarge: TextStyle(fontFamily: 'FontRoboto', fontSize: 24),
+            headlineMedium:
+                TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+            headlineSmall: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
           )),
-
-      home:  SplashPage(),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
 /*
   @override
@@ -131,10 +126,11 @@ class _SplitingWidgetPage extends State<MyHomePage> {
       body: Container(
         child: Column(
           children: [
-             CategoryList(),
-              UserDetail(),
-              RectangleSlider(),
-              ImageDetail()
+            /* CategoryList(),
+            UserDetail(),
+            RectangleSlider(),
+            ImageDetail()*/
+            AnimatedContainerPage()
           ],
         ),
       ),
@@ -142,6 +138,73 @@ class _SplitingWidgetPage extends State<MyHomePage> {
   }
 }
 
+class AnimatedContainerPage extends StatefulWidget {
+
+  @override
+  State<AnimatedContainerPage> createState() => _AnimatedContainerPageState();
+}
+
+class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
+  var _height = 200.0;
+  var _width = 100.0;
+  var curve = Curves.easeInCubic;
+
+  var decor = BoxDecoration(
+    borderRadius: BorderRadius.circular(5)
+  );
+
+  bool flag = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+        AnimatedContainer(
+          width: _height,
+          height: _width,
+          curve: curve,
+          color: Colors.greenAccent,
+         // decoration: decor,
+          duration: Duration(seconds: 2),
+
+        ),
+        ElevatedButton(
+          onPressed: () {
+
+            if(flag){
+              _height = 200;
+              _width = 100;
+              flag = false;
+              curve = Curves.linearToEaseOut;
+              decor = BoxDecoration(
+                  borderRadius: BorderRadius.circular(5)
+              );
+            }
+            else{
+              _height = 100;
+              _width = 200;
+              curve = Curves.slowMiddle;
+              flag = true;
+              decor = BoxDecoration(
+                  borderRadius: BorderRadius.circular(10)
+              );
+            }
+            setState(() {
+
+            });
+          },
+          child: Text(
+            "Animate",
+            style: TextStyle(color: Colors.white),
+          ),
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
+        )
+      ]),
+    );
+  }
+}
 
 class CategoryList extends StatelessWidget {
   @override
