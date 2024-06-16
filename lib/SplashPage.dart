@@ -12,10 +12,18 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
+
+  bool isFirst = true;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    Timer(Duration(seconds: 2),(){
+      reload();
+    });
+
 
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(
@@ -23,15 +31,32 @@ class _SplashPageState extends State<SplashPage> {
     });
   }
 
+  void reload(){
+    setState(() {
+      isFirst = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Colors.blueAccent,
-              child: Image.asset('assets/images/logo.png'))),
+          child:   AnimatedCrossFade(
+              firstChild: Container(
+                width: 200,
+                height: 100,
+                color: Colors.lightGreen,
+              ),
+              secondChild: Image.asset('assets/images/logo.png'),
+              crossFadeState: isFirst ?CrossFadeState.showFirst : CrossFadeState.showSecond,
+              duration: Duration(seconds: 3)) ),
     );
   }
 }
+
+/*
+* /*Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Colors.blueAccent,
+              child: Image.asset('assets/images/logo.png'))*/*/

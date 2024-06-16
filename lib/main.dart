@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
                 TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             headlineSmall: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
           )),
-      home: MyHomePage(),
+      home: SplashPage(),
     );
   }
 }
@@ -139,7 +139,6 @@ class _SplitingWidgetPage extends State<MyHomePage> {
 }
 
 class AnimatedContainerPage extends StatefulWidget {
-
   @override
   State<AnimatedContainerPage> createState() => _AnimatedContainerPageState();
 }
@@ -149,51 +148,61 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
   var _width = 100.0;
   var curve = Curves.easeInCubic;
 
-  var decor = BoxDecoration(
-    borderRadius: BorderRadius.circular(5)
-  );
+  var decor = BoxDecoration(borderRadius: BorderRadius.circular(5));
 
   bool flag = true;
+
+  var opacity = 0.0;
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         AnimatedContainer(
           width: _height,
           height: _width,
           curve: curve,
           color: Colors.greenAccent,
-         // decoration: decor,
+          // decoration: decor,
           duration: Duration(seconds: 2),
-
         ),
+        AnimatedOpacity(
+          opacity: opacity,
+          duration: Duration(seconds: 2),
+          child: Container(
+            width: 100,
+            height: 100,
+            color: Colors.blueAccent,
+          ),
+        ),
+        AnimatedCrossFade(
+            firstChild: Container(
+              width: 200,
+              height: 100,
+              color: Colors.lightGreen,
+            ),
+            secondChild: Image.asset('assets/images/logo.png'),
+            crossFadeState: flag ?CrossFadeState.showFirst : CrossFadeState.showSecond,
+            duration: Duration(seconds: 3)),
+
         ElevatedButton(
           onPressed: () {
-
-            if(flag){
+            if (flag) {
+              opacity = 0.0;
               _height = 200;
               _width = 100;
               flag = false;
               curve = Curves.linearToEaseOut;
-              decor = BoxDecoration(
-                  borderRadius: BorderRadius.circular(5)
-              );
-            }
-            else{
+              decor = BoxDecoration(borderRadius: BorderRadius.circular(5));
+            } else {
+              opacity = 1.0;
               _height = 100;
               _width = 200;
               curve = Curves.slowMiddle;
               flag = true;
-              decor = BoxDecoration(
-                  borderRadius: BorderRadius.circular(10)
-              );
+              decor = BoxDecoration(borderRadius: BorderRadius.circular(10));
             }
-            setState(() {
-
-            });
+            setState(() {});
           },
           child: Text(
             "Animate",
