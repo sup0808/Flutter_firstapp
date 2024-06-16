@@ -22,11 +22,13 @@ class _ProfilescreenState extends State<ProfileScreen>
   late Animation animation;
   late AnimationController animationController;
 
+  var listRadius = [150.0,200.0,250.0,250.0,30.0];
+
   @override
   void initState() {
     super.initState();
     animationController = AnimationController(vsync: this,duration: Duration(seconds: 4));
-    animation = Tween(begin: 200.0,end: 100.0).animate(animationController);
+    animation = Tween(begin: 0.0,end: 1.0).animate(animationController);
     
     animationController.addListener((){
       print(animation.value);
@@ -54,7 +56,7 @@ class _ProfilescreenState extends State<ProfileScreen>
               /* Text("Welcome ${widget.userName}", style: TextStyle(fontSize: 24),),
               Text("UserName :: ${name}", style: TextStyle(fontSize: 24),),
             Text("Password :: ${password}",style: TextStyle(fontSize: 24),),*/
-              InkWell(
+            /*  InkWell(
                   child: Hero(
                       tag: 'background',
                       child: Image.asset(
@@ -65,7 +67,18 @@ class _ProfilescreenState extends State<ProfileScreen>
               onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage()));
               },
-              )
+              ),*/
+                  Stack(
+                    children:
+                      listRadius.map((radius)=>Container(
+                        width: radius*animation.value,
+                        height: radius*animation.value,
+                        decoration: BoxDecoration(
+                            color: Colors.blue.withOpacity(1.0 - animation.value)
+                        ),
+                      )).toList()
+                    ,
+                  )
             ])),
       ),
     );
