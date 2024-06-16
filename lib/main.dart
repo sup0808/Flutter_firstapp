@@ -131,11 +131,10 @@ class _SplitingWidgetPage extends State<MyHomePage> {
       body: Container(
         child: Column(
           children: [
-            CustomWidget()
-            /* CategoryList(),
+             CategoryList(),
               UserDetail(),
               RectangleSlider(),
-              ImageDetail()*/
+              ImageDetail()
           ],
         ),
       ),
@@ -143,49 +142,6 @@ class _SplitingWidgetPage extends State<MyHomePage> {
   }
 }
 
-class CustomWidget extends StatelessWidget {
-  play(){
-    print("Play clicked");
-
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            width: 200,
-            child: RoundedBtn(
-              btnName: "Login",
-              icon: Icon(Icons.lock),
-              textStyle: TextStyle(fontSize: 24),
-              callback: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context){
-                  return LoginPage();
-                }));
-              },
-            ),
-          ),
-          Container(
-            height: 20,
-          ),
-          Container(
-            width: 200,
-            child: RoundedBtn(
-              btnName: "Play",
-              icon: Icon(Icons.play_circle),
-              color: Colors.orange,
-              textStyle:TextStyle(fontSize: 24,color: Colors.black) ,
-              callback: play,
-            ),
-          ),
-
-        ],
-      ),
-    );
-  }
-}
 
 class CategoryList extends StatelessWidget {
   @override

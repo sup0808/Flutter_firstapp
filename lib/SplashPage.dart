@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:async';
 
 import 'package:demp/loginPage.dart';
+import 'package:demp/widgets/Dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _SplashPageState extends State<SplashPage> {
 
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginPage()));
+          context, MaterialPageRoute(builder: (context) => Dashboard()));
     });
   }
 
