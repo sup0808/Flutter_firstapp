@@ -212,11 +212,16 @@ class MappingListtoWidgetPage extends StatelessWidget{
 
 
 class ListWheelScrollViewPage extends StatelessWidget{
+
+  var arrName = [1,2,3,4,5,6,7,89,9];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListWheelScrollView(
-        children: [
+        children: arrName.map((data){
+          return Container(width: 200,color: Colors.blue,);
+        }).toList(),
+       /* children: [
           Container(width: 200,color: Colors.blue,),
           Container(width: 200,color: Colors.blue,),
           Container(width: 200,color: Colors.blue,),
@@ -225,7 +230,7 @@ class ListWheelScrollViewPage extends StatelessWidget{
           Container(width: 200,color: Colors.blue,),
           Container(width: 200,color: Colors.blue,),
 
-        ],
+        ],*/
         itemExtent: 100,
       ),
     );
