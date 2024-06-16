@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
                 TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             headlineSmall: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
           )),
-      home: ListWheelScrollViewPage(),
+      home: LoginPage(),
     );
   }
 }

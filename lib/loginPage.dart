@@ -16,7 +16,18 @@ class LoginPage extends StatelessWidget {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          color: Colors.lightBlueAccent,
+
+          decoration: BoxDecoration(
+
+            gradient: LinearGradient(
+              colors: [
+                Colors.white,
+                Colors.blue,
+                Colors.purple
+              ],
+
+            )
+          ),
           child: Center(
             child: Column(
               children: [
