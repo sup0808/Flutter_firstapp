@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
                 TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             headlineSmall: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
           )),
-      home: MappingListtoWidgetPage(),
+      home: ListWheelScrollViewPage(),
     );
   }
 }
@@ -210,6 +210,28 @@ class MappingListtoWidgetPage extends StatelessWidget{
 
 }
 
+
+class ListWheelScrollViewPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListWheelScrollView(
+        children: [
+          Container(width: 200,color: Colors.blue,),
+          Container(width: 200,color: Colors.blue,),
+          Container(width: 200,color: Colors.blue,),
+          Container(width: 200,color: Colors.blue,),
+          Container(width: 200,color: Colors.blue,),
+          Container(width: 200,color: Colors.blue,),
+          Container(width: 200,color: Colors.blue,),
+
+        ],
+        itemExtent: 100,
+      ),
+    );
+  }
+
+}
 class AnimatedContainerPage extends StatefulWidget {
   @override
   State<AnimatedContainerPage> createState() => _AnimatedContainerPageState();
