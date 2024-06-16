@@ -56,7 +56,7 @@ class _ProfilescreenState extends State<ProfileScreen>
               /* Text("Welcome ${widget.userName}", style: TextStyle(fontSize: 24),),
               Text("UserName :: ${name}", style: TextStyle(fontSize: 24),),
             Text("Password :: ${password}",style: TextStyle(fontSize: 24),),*/
-            /*  InkWell(
+              InkWell(
                   child: Hero(
                       tag: 'background',
                       child: Image.asset(
@@ -67,8 +67,8 @@ class _ProfilescreenState extends State<ProfileScreen>
               onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>DetailPage()));
               },
-              ),*/
-                  Stack(
+              ),
+                 /* Stack(
                     children:
                       listRadius.map((radius)=>Container(
                         width: radius*animation.value,
@@ -78,7 +78,7 @@ class _ProfilescreenState extends State<ProfileScreen>
                         ),
                       )).toList()
                     ,
-                  )
+                  )*/
             ])),
       ),
     );

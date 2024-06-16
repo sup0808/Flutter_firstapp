@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
                 TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             headlineSmall: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
           )),
-      home: ProfileScreen("sggd"),
+      home: MappingListtoWidgetPage(),
     );
   }
 }
@@ -48,6 +48,9 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _SplitingWidgetPage();
 }
+
+
+
 
 class _GridViewPage extends State<MyHomePage> {
   var arrColors = [
@@ -128,16 +131,83 @@ class _SplitingWidgetPage extends State<MyHomePage> {
       body: Container(
         child: Column(
           children: [
-            /* CategoryList(),
+             CategoryList(),
             UserDetail(),
             RectangleSlider(),
-            ImageDetail()*/
-            AnimatedContainerPage()
+            ImageDetail()
+           // AnimatedContainerPage()
+           // MappingListtoWidgetPage()
           ],
         ),
       ),
     );
   }
+}
+
+
+class MappingListtoWidgetPage extends StatelessWidget{
+  var arrName = [
+    'Supriya',
+    'Sharesth',
+    'Arvind',
+    'Shreeja',
+    'Sanya',
+    'Shibu',
+    'Bhindi'
+  ];
+
+  var userData = [
+    {
+      'name' : "Supriya",
+      'mobno' : '9563399220',
+      'unread' : 2
+    },
+    {
+      'name' : "shresth",
+      'mobno' : '9563399220',
+      'unread' : 2
+    },
+    {
+      'name' : "Shreeja",
+      'mobno' : '9563399220',
+      'unread' : 2
+    },
+    {
+      'name' : "Arvind",
+      'mobno' : '9563399220',
+      'unread' : 2
+    },
+    {
+      'name' : "Tukku",
+      'mobno' : '9563399220',
+      'unread' : 2
+    },
+    {
+      'name' : "Pihu",
+      'mobno' : '9563399220',
+      'unread' : 2
+    }
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: ListView(
+        children: userData.map((data) {
+      return ListTile(
+        leading: Icon(Icons.account_circle),
+        title: Text("${data['name']}"),
+        subtitle: Text("${data['mobno']}"),
+        trailing: Icon(Icons.add) ,
+      );
+    }).toList(),
+    ),
+    ));
+  }
+
 }
 
 class AnimatedContainerPage extends StatefulWidget {
