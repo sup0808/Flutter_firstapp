@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 class DetailPage extends StatefulWidget {
   @override
@@ -9,6 +10,7 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   String? apiData;
+  Map? mapResponse;
 
   @override
   void initState() {
@@ -21,9 +23,10 @@ class _DetailPageState extends State<DetailPage> {
     response = await http.get(Uri.parse("https://reqres.in/api/users/2"));
     if (response.statusCode == 200) {
       setState(() {
-        apiData = response.body;
+        //apiData = response.body;
+        mapResponse = json.decode(response.body);
       });
-      print("Api request success---------- $apiData");
+      print("Api request success------------ ${mapResponse!['data']}");
     } else {
       print("Api request success");
     }
@@ -40,7 +43,7 @@ class _DetailPageState extends State<DetailPage> {
         ),
         Container(
           child: Text(
-            apiData.toString(),
+            mapResponse!['data'].toString(),
             style: TextStyle(fontSize: 12, color: Colors.white),
           ),
         )
