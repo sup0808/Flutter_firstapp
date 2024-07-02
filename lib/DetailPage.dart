@@ -11,6 +11,11 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   String? apiData;
   Map? mapResponse;
+  Map? data;
+  Map? support;
+ /* {"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet",
+  "last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading",
+  "text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}*/
 
   @override
   void initState() {
@@ -25,6 +30,8 @@ class _DetailPageState extends State<DetailPage> {
       setState(() {
         //apiData = response.body;
         mapResponse = json.decode(response.body);
+        data = mapResponse!['data'];
+        support = mapResponse!['support'];
       });
       print("Api request success------------ ${mapResponse!['data']}");
     } else {
@@ -41,11 +48,14 @@ class _DetailPageState extends State<DetailPage> {
           height: 200,
           child: Image.asset('assets/images/back.jpg'),
         ),
-        Container(
-          child: Text(
-            mapResponse!['data'].toString(),
-            style: TextStyle(fontSize: 12, color: Colors.white),
-          ),
+        Column(
+          children: [
+            Container(
+              child: mapResponse == null ? Text("Data is loading") : Text(mapResponse!['data'].toString(), style: TextStyle(fontSize: 12, color: Colors.white),),
+            ),
+            Text("firstname  -- "+data!['first_name'].toString()),
+            Text("url --- "+support!['url'].toString())
+          ],
         )
       ],
     );
