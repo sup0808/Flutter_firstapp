@@ -6,6 +6,9 @@ import 'package:demp/widgets/Dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/foundation.dart' as Foundation;
+
 class SplashPage extends StatefulWidget {
   @override
   State<SplashPage> createState() => _SplashPageState();
@@ -19,6 +22,13 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+
+    if (Foundation.kReleaseMode){     // is Release Mode??
+      print('release mode');
+    } else {
+      print('debug mode');
+    }
 
     Timer(Duration(seconds: 2),(){
       reload();

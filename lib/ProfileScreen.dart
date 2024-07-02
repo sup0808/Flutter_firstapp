@@ -24,7 +24,7 @@ class _ProfilescreenState extends State<ProfileScreen>
 
   var listRadius = [150.0,200.0,250.0,250.0,30.0];
 
-  @override
+ /* @override
   void initState() {
     super.initState();
     animationController = AnimationController(vsync: this,duration: Duration(seconds: 4));
@@ -40,7 +40,7 @@ class _ProfilescreenState extends State<ProfileScreen>
     animationController.forward();
     getValue();
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(

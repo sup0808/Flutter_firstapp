@@ -1,3 +1,4 @@
+import 'package:demp/DetailPage.dart';
 import 'package:demp/SplashPage.dart';
 import 'package:demp/loginPage.dart';
 import 'package:demp/uiHelper/util.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
                 TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             headlineSmall: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
           )),
-      home: LoginPage(),
+      home: DetailPage(),
     );
   }
 }
