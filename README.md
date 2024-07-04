@@ -6,6 +6,11 @@ https://www.youtube.com/watch?v=_R4Pr3tR0uY&list=PLjVLYmrlmjGfGLShoW0vVX_tcyT8u1
 
 A new Flutter project.
 
+# Local Db NoSQL
+https://www.youtube.com/watch?v=mKTmzdXLdH4&list=PLFyjjoCMAPtyQAnT6GilOjctmtTLBOZf4
+# Local Db SQlite
+https://www.youtube.com/watch?v=pFctmsTDoa0
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
