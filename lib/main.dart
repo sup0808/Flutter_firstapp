@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'ApiDemo.dart';
+import 'UserDashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
                 TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
             headlineSmall: TextStyle(fontWeight: FontWeight.w200, fontSize: 12),
           )),
-      home: DetailPage(),
+      home: UserDashboard(),
     );
   }
 }
